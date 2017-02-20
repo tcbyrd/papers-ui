@@ -2,7 +2,7 @@
   "generator-express": {
     "promptValues": {
       "type": "MVC",
-      "viewEngine": "Jade",
+      "viewEngine": "Pug",
       "cssPreprocessor": "None",
       "database": "None",
       "buildTool": "Gulp"

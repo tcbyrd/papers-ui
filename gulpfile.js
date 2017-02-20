@@ -8,7 +8,7 @@ gulp.task('develop', function () {
   livereload.listen();
   nodemon({
     script: 'app.js',
-    ext: 'js coffee jade',
+    ext: 'js coffee pug',
     stdout: false
   }).on('readable', function () {
     this.stdout.on('data', function (chunk) {
