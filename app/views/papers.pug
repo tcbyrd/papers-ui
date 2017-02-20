@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  each paper in papers
+    h1= paper.title
+    p #{paper.id}: #{paper.abstract}
+  button(type='button' onClick='fetchNextPage()')= 'Next Page'
