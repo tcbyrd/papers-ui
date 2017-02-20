@@ -3,9 +3,10 @@ var router = express.Router()
 const base = require('airtable').base('appf6aPxwZ2Jn78Os');
 
 router.get('/papers', function (req, res, next) {
+  console.log(req.url);
   base('Imported Table').select({
       // Selecting the first 3 records in Main View:
-      maxRecords: 10,
+      maxRecords: 100,
       view: "Main View"
   }).eachPage(function page(records, fetchNextPage) {
       // This function (`page`) will get called for each page of records.
@@ -22,11 +23,7 @@ router.get('/papers', function (req, res, next) {
       // To fetch the next page of records, call `fetchNextPage`.
       // If there are more records, `page` will get called again.
       // If there are no more records, `done` will get called.
-      console.log(req.query);
-      if(req.query){
-        fetchNextPage();
-      }
-      res.render('papers', {papers})
+      res.render('papers', {title: 'Papers', papers})
 
   }, function done(err) {
       if (err) { console.error(err); res.send('error fetching data from AirTable'); }
