@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  h1(class='day')= day
   each paper in papers
-    h1= paper.title
-    p #{paper.id}: #{paper.abstract}
+    h2= paper.trackTitle
+    p <strong>#{paper.startTime} - #{paper.endTime}</strong>
+    p <strong>#{paper.lastName1}, #{paper.firstName1}</strong>, #{paper.title}
