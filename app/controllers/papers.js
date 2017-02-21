@@ -69,7 +69,7 @@ router.get('/papers/:day', function (req, res, next){
     var filterOpts = {
       // Selecting the first 25 records in the Urbanism tracks:
       maxRecords: 25,
-      view: "Decolonising Digital Archaeology (S15)",
+      view: "Urbanism at the micro (S13)",
       filterByFormula: filterDate
     }
   } else {
