@@ -16,8 +16,9 @@ a {
 }
 
 .time {
+  display: inline-table;
   margin-right: 5px;
-  padding-right: 40px;
+  padding-right: 10px;
   float: left;
 }
 
