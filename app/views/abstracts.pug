@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  each paper in papers
+    h2= paper.title
+    p <strong>#{paper.lastName1}, #{paper.firstName1}</strong>
+    if paper.lastName2
+      p <strong>#{paper.lastName2}, #{paper.firstName2}</strong>
+    p #{paper.abstract}

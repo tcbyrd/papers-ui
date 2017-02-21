@@ -2,6 +2,53 @@ var express = require('express')
 var router = express.Router()
 const base = require('airtable').base('appf6aPxwZ2Jn78Os');
 
+router.get('/papers/abstracts', function (req, res, next) {
+  var filterOpts = {
+    // Selecting the first 100 records in Abstracts view:
+    maxRecords: 100,
+    view: "Abstracts"
+  }
+  base('Imported Table').select(filterOpts).eachPage(function page(records, fetchNextPage) {
+      // This function (`page`) will get called for each page of records.
+      var papers = []
+      records.forEach(function(record) {
+          console.log('Retrieved', record.get('Submission ID'));
+          var id = record.get('Submission ID')
+          var title = record.get('Title')
+          var abstract = record.get('Abstract')
+          var order = record.get('Order in Session')
+          var day = record.get('Day')
+          var sessionType = record.get('Session Type')
+          var trackTitle = record.get('Track title')
+          var firstName1 = record.get('First name (Author 1)')
+          var lastName1 = record.get('Last name (Author 1)')
+          var firstName2 = record.get('First name (Author 2)')
+          var lastName2 = record.get('Last name (Author 2)')
+          var abstract = record.get('Abstract')
+          var newPaper = {
+            id: id,
+            title: title,
+            abstract: abstract,
+            trackTitle: trackTitle,
+            firstName1: firstName1,
+            lastName1: lastName1,
+            firstName2: firstName2,
+            lastName2: lastName2,
+          }
+          // console.log(newPaper);
+          papers.push(newPaper)
+      });
+
+      // To fetch the next page of records, call `fetchNextPage`.
+      // If there are more records, `page` will get called again.
+      // If there are no more records, `done` will get called.
+      res.render('abstracts', {title: 'abstracts', papers})
+
+  }, function done(err) {
+      if (err) { console.error(err); res.send('error fetching data from AirTable'); }
+  });
+});
+
 router.get('/papers/:day', function (req, res, next){
   var date = ''
   switch (req.params.day) {
@@ -20,16 +67,15 @@ router.get('/papers/:day', function (req, res, next){
   if (date !== '') {
     var filterDate = "({Day} = '" + date + "')"
     var filterOpts = {
-      // Selecting the first 3 records in Main View:
+      // Selecting the first 25 records in the Urbanism tracks:
       maxRecords: 25,
-      view: "Main View",
+      view: "Urbanism at the micro (S13)",
       filterByFormula: filterDate
     }
   } else {
     var filterOpts = {
       maxRecords: 50,
-      view: "Main View",
-      filterByFormula: "NOT({Time Start} = '')"
+      view: "Filtered for Web"
     }
   }
   console.log('Formula: ', filterOpts.filterByFormula);

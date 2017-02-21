@@ -10,3 +10,17 @@ a {
 .day {
   text-transform: uppercase;
 }
+
+.paper {
+  display: flex;
+}
+
+.time {
+  margin-right: 5px;
+  padding-right: 40px;
+  float: left;
+}
+
+.description {
+  display: inline;
+}
