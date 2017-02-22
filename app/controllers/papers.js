@@ -52,18 +52,19 @@ router.get('/papers/abstracts', function (req, res, next) {
 router.get('/papers/:day', function (req, res, next){
   var date = ''
   var view = ''
-  switch (req.params.day) {
+  var day = req.params.day
+  switch (day) {
     case 'tuesday':
       date = '3/14/17'
-      view = 'Urbanism at the micro (S13)'
+      view = 'Tuesday'
       break;
     case 'wednesday':
       date = '3/15/17'
-      view = 'Decolonising Digital Archaeology (S15)'
+      view = 'Wednesday'
       break;
     case 'thursday':
       date = '3/16/17'
-      view = 'Filtered for Web'
+      view = 'Thursday'
       break;
     case 'all':
       date = ''
@@ -78,13 +79,15 @@ router.get('/papers/:day', function (req, res, next){
     var filterDate = "({Day} = '" + date + "')"
     var filterOpts = {
       // Selecting the first 25 records in the track defined in 'view':
-      maxRecords: 25,
+      maxRecords: 400,
+      pageSize: 100,
       view: view,
       filterByFormula: filterDate
     }
   } else {
     var filterOpts = {
-      maxRecords: 50,
+      maxRecords: 400,
+      pageSize: 100,
       view: view
     }
   }
@@ -125,15 +128,15 @@ router.get('/papers/:day', function (req, res, next){
           // console.log(newPaper);
           papers.push(newPaper)
       });
-
       // To fetch the next page of records, call `fetchNextPage`.
       // If there are more records, `page` will get called again.
       // If there are no more records, `done` will get called.
-      res.render('papers', {title: 'Papers', day: req.params.day, papers})
+      res.render('papers', {title: 'Papers', day: day, papers})
 
   }, function done(err) {
       if (err) { console.error(err); res.send('error fetching data from AirTable'); }
   });
+
 });
 
 // router.get('/papers', function (req, res, next) {

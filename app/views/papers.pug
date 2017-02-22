@@ -3,8 +3,12 @@ extends layout
 block content
   h1(class='day')= day
   if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
-    h2= papers[0].trackTitle
+  - var checkIndex = ''
   each paper in papers
+    - var sessionIndex = paper.sessionType
+    if sessionIndex !== checkIndex
+      h2= paper.trackTitle
+      - checkIndex = paper.sessionType
     div(class='paper')
       p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
       p(class='description') <strong>#{paper.lastName1}, #{paper.firstName1}</strong>, <em>#{paper.title}</em>
