@@ -2,7 +2,8 @@ extends layout
 
 block content
   h1(class='day')= day
-  h2= papers[0].trackTitle
+  if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
+    h2= papers[0].trackTitle
   each paper in papers
     div(class='paper')
       p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>

@@ -51,31 +51,41 @@ router.get('/papers/abstracts', function (req, res, next) {
 
 router.get('/papers/:day', function (req, res, next){
   var date = ''
+  var view = ''
   switch (req.params.day) {
     case 'tuesday':
       date = '3/14/17'
+      view = 'Urbanism at the micro (S13)'
       break;
     case 'wednesday':
       date = '3/15/17'
+      view = 'Decolonising Digital Archaeology (S15)'
       break;
     case 'thursday':
       date = '3/16/17'
+      view = 'Filtered for Web'
+      break;
+    case 'all':
+      date = ''
+      view = "Filtered for Web"
       break;
     default:
       date = ''
+      view = "Default"
+      break;
   }
   if (date !== '') {
     var filterDate = "({Day} = '" + date + "')"
     var filterOpts = {
-      // Selecting the first 25 records in the Urbanism tracks:
+      // Selecting the first 25 records in the track defined in 'view':
       maxRecords: 25,
-      view: "Urbanism at the micro (S13)",
+      view: view,
       filterByFormula: filterDate
     }
   } else {
     var filterOpts = {
       maxRecords: 50,
-      view: "Filtered for Web"
+      view: view
     }
   }
   console.log('Formula: ', filterOpts.filterByFormula);
