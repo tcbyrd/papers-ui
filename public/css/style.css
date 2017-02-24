@@ -1,29 +1,39 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px serif;
 }
 
 a {
   color: #00B7FF;
 }
 
+h2 {
+  width: 90%;
+  text-align: left;
+}
+
 .day {
   text-transform: uppercase;
+  text-align: center;
+  text-decoration: underline;
 }
 
 .paper {
   display: flex;
+  width: 90%;
 }
 
 .time {
   display: inline-table;
   margin-right: 5px;
-  padding-right: 10px;
   float: left;
+  width: 33%;
 }
 
 .description {
   display: inline;
+  font-family: serif;
+  font-size: 16px;
 }
 
 @page {

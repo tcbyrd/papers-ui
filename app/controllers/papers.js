@@ -23,6 +23,18 @@ function getPapers(filterOpts) {
         var lastName1 = record.get('Last name (Author 1)')
         var firstName2 = record.get('First name (Author 2)')
         var lastName2 = record.get('Last name (Author 2)')
+        var firstName3 = record.get('First name (Author 3)')
+        var lastName3 = record.get('Last name (Author 3)')
+        var firstName4 = record.get('First name (Author 4)')
+        var lastName4 = record.get('Last name (Author 4)')
+        var firstName5 = record.get('First name (Author 5)')
+        var lastName5 = record.get('Last name (Author 5)')
+        var firstName6 = record.get('First name (Author 6)')
+        var lastName6 = record.get('Last name (Author 6)')
+        var firstName7 = record.get('First name (Author 7)')
+        var lastName7 = record.get('Last name (Author 7)')
+        var firstName8 = record.get('First name (Author 8)')
+        var lastName8 = record.get('Last name (Author 8)')
         var abstract = record.get('Abstract')
         var newPaper = {
           id: id,
@@ -37,7 +49,19 @@ function getPapers(filterOpts) {
           firstName1: firstName1,
           lastName1: lastName1,
           firstName2: firstName2,
-          lastName2: lastName2
+          lastName2: lastName2,
+          firstName3: firstName3,
+          lastName3: lastName3,
+          firstName4: firstName4,
+          lastName4: lastName4,
+          firstName5: firstName5,
+          lastName5: lastName5,
+          firstName6: firstName6,
+          lastName6: lastName6,
+          firstName7: firstName7,
+          lastName7: lastName7,
+          firstName8: firstName8,
+          lastName8: lastName8
         }
         // console.log(newPaper);
         newPapers.push(newPaper)

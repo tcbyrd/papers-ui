@@ -6,9 +6,25 @@ block content
   - var checkIndex = ''
   each paper in papers
     - var sessionIndex = paper.sessionType
+    if paper.lastName8
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7 + ', ' + paper.firstName8 + ' ' + paper.lastName8
+    else if paper.lastName7
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7
+    else if paper.lastName6
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6
+    else if paper.lastName5
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5
+    else if paper.lastName4
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4
+    else if paper.lastName3
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3
+    else if paper.lastName2
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2
+    else if paper.lastName1
+      - var authorString = paper.lastName1 + ', ' + paper.firstName1
     if sessionIndex !== checkIndex
       h2= paper.trackTitle
       - checkIndex = paper.sessionType
     div(class='paper')
       p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
-      p(class='description') <strong>#{paper.lastName1}, #{paper.firstName1}</strong>, <em>#{paper.title}</em>
+      p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
