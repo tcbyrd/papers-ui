@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px serif;
+  font: 12px serif;
 }
 
 a {
@@ -10,12 +10,28 @@ a {
 h2 {
   width: 90%;
   text-align: left;
+  font-size: 16px;
+}
+
+.header {
+  display: inline-block;
+}
+
+.caalogo {
+  padding-right: 25px;
+  width: 50%;
+}
+
+.gsulogo {
+  float: right;
+  height: 60px;
 }
 
 .day {
   text-transform: uppercase;
   text-align: center;
   text-decoration: underline;
+  font-size: 20px;
 }
 
 .paper {
@@ -33,11 +49,12 @@ h2 {
 .description {
   display: inline;
   font-family: serif;
-  font-size: 16px;
+  font-size: 12px;
+  text-transform: capitalize;
 }
 
 @page {
   size: 7in 8.5in;
-  margin: 0;
+  margin-right: .25in;
 
 }
