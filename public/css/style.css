@@ -11,6 +11,12 @@ h2 {
   width: 90%;
   text-align: left;
   font-size: 16px;
+  padding-top: 10px;
+  background-color: #EEE;
+  margin: auto;
+  display: inline-flex;
+  line-height: 15px;
+  align-self: center;
 }
 
 .header {
@@ -37,6 +43,7 @@ h2 {
 .paper {
   display: flex;
   width: 90%;
+  border-bottom: .25px dotted #AAA;
 }
 
 .time {
@@ -53,8 +60,35 @@ h2 {
   text-transform: capitalize;
 }
 
+.abstract {
+  padding-bottom: 25px;
+  border-bottom: .5px inset #333333;
+}
+
 @page {
   size: 7in 8.5in;
   margin-right: .25in;
+}
 
+@media print {
+  h2 {
+    width: 90%;
+    text-align: left;
+    font-size: 16px;
+    padding-top: 10px;
+    margin: auto;
+    line-height: 15px;
+    align-self: center;
+    page-break-after: avoid;
+  }
+
+  .author {
+    display: block;
+    text-transform: capitalize;
+  }
+
+  .abstract {
+    display: block;
+    page-break-before: avoid;
+  }
 }

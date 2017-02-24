@@ -23,5 +23,5 @@ block content
       -var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2
     else if paper.lastName1
       -var authorString = paper.lastName1 + ', ' + paper.firstName1
-    p <strong>#{authorString}</strong>
-    p #{paper.abstract}
+    p(class='author') <strong style="text-transform: capitalize">#{authorString}</strong>
+    p(class='abstract') #{paper.abstract}

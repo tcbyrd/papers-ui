@@ -26,7 +26,7 @@ block content
     else if paper.lastName1
       - var authorString = paper.lastName1 + ', ' + paper.firstName1
     if sessionIndex !== checkIndex
-      h2= paper.trackTitle
+      h2= paper.sessionTitle
       - checkIndex = paper.sessionType
     div(class='paper')
       p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>

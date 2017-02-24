@@ -18,7 +18,7 @@ function getPapers(filterOpts) {
         var startTime = record.get('Time Start')
         var endTime = record.get('Time End')
         var sessionType = record.get('Session Type')
-        var trackTitle = record.get('Track title')
+        var sessionTitle = record.get('Session title')
         var firstName1 = record.get('First name (Author 1)')
         var lastName1 = record.get('Last name (Author 1)')
         var firstName2 = record.get('First name (Author 2)')
@@ -45,7 +45,7 @@ function getPapers(filterOpts) {
           startTime: startTime,
           endTime: endTime,
           sessionType: sessionType,
-          trackTitle: trackTitle,
+          sessionTitle: sessionTitle,
           firstName1: firstName1,
           lastName1: lastName1,
           firstName2: firstName2,
