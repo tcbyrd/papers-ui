@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const base = require('airtable').base('appf6aPxwZ2Jn78Os');
 let papers = [];
+let test = '';
 
 function getPapers(filterOpts) {
   return new Promise(function(resolve, reject) {
