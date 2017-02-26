@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 const base = require('airtable').base('appf6aPxwZ2Jn78Os');
 let papers = [];
-let sessions = [];
+let sessions = {};
 
 function getPapers(filterOpts) {
   return new Promise(function(resolve, reject) {
@@ -102,19 +102,38 @@ function getPapers(filterOpts) {
   });
 }
 
-function getSessions(filterOpts) {
+function getSessions() {
   return new Promise(function(resolve, reject) {
-  let newSessions = []
-  base('Sessions').select(filterOpts).eachPage(function page(records, fetchNextPage) {
+  let newSessions = {}
+  base('Sessions').select({view: "Main View"}).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
     records.forEach(function(record) {
-        console.log('Retrieved', record.get('Submission ID'));
+        console.log('Session Retrieved', record.get('Submission ID'));
         var sessionTitle = record.get('Session Title')
+        var firstNameOrg1 = record.get('First Name (Organizer 1)')
+        var lastNameOrg1 = record.get('Last Name (Organizer 1)')
+        var firstNameOrg2 = record.get('First Name (Organizer 2)')
+        var lastNameOrg2 = record.get('Last Name (Organizer 2)')
+        var firstNameOrg3 = record.get('First Name (Organizer 3)')
+        var lastNameOrg3 = record.get('Last Name (Organizer 3)')
+        var firstNameOrg4 = record.get('First Name (Organizer 4)')
+        var lastNameOrg4 = record.get('Last Name (Organizer 4)')
+        var firstNameOrg5 = record.get('First Name (Organizer 5)')
+        var lastNameOrg5 = record.get('Last Name (Organizer 5)')
         var newSession = {
-          sessionTitle: sessionTitle
+          firstNameOrg1: firstNameOrg1,
+          lastNameOrg1: lastNameOrg1,
+          firstNameOrg2: firstNameOrg2,
+          lastNameOrg2: lastNameOrg2,
+          firstNameOrg3: firstNameOrg3,
+          lastNameOrg3: lastNameOrg3,
+          firstNameOrg4: firstNameOrg4,
+          lastNameOrg4: lastNameOrg4,
+          firstNameOrg5: firstNameOrg5,
+          lastNameOrg5: lastNameOrg5
         }
         // console.log(newPaper);
-        newSessions.push(newSession)
+        newSessions[sessionTitle] = newSession
     });
     // To fetch the next page of records, call `fetchNextPage`.
     // If there are more records, `page` will get called again.
@@ -180,8 +199,13 @@ router.get('/papers/:day', function (req, res, next){
     }
   }
   console.log('Formula: ', filterOpts.filterByFormula);
-  getPapers(filterOpts)
-    .then(papers => res.render('papers', {title: 'Papers', day: day, papers}))
+  getSessions()
+    .then(sessions => console.log(sessions))
+    .then(
+      getPapers(filterOpts)
+      .then(papers => res.render('papers', {title: 'Papers', day: day, papers, sessions}))
+    )
+
 });
 
 // router.get('/papers', function (req, res, next) {

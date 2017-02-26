@@ -65,6 +65,13 @@ h2 {
   border-bottom: .5px inset #333333;
 }
 
+.organizer {
+  padding-left: 5px;
+  font-style: oblique;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
 @page {
   size: 7in 8.5in;
   margin-right: .25in;
