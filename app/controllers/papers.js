@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const base = require('airtable').base('appf6aPxwZ2Jn78Os');
 let papers = [];
+let sessions = [];
 
 function getPapers(filterOpts) {
   return new Promise(function(resolve, reject) {
@@ -36,6 +37,17 @@ function getPapers(filterOpts) {
         var firstName8 = record.get('First name (Author 8)')
         var lastName8 = record.get('Last name (Author 8)')
         var abstract = record.get('Abstract')
+        var room = record.get('Room')
+        var ampm = record.get('Morning / Afternoon')
+        var affilName1 = record.get('Affiliation (Author 1)')
+        var affilName2 = record.get('Affiliation (Author 2)')
+        var affilName3 = record.get('Affiliation (Author 3)')
+        var affilName4 = record.get('Affiliation (Author 4)')
+        var affilName5 = record.get('Affiliation (Author 5)')
+        var affilName6 = record.get('Affiliation (Author 6)')
+        var affilName7 = record.get('Affiliation (Author 7)')
+        var affilName8 = record.get('Affiliation (Author 8)')
+        var track = record.get('Track')
         var newPaper = {
           id: id,
           title: title,
@@ -61,7 +73,19 @@ function getPapers(filterOpts) {
           firstName7: firstName7,
           lastName7: lastName7,
           firstName8: firstName8,
-          lastName8: lastName8
+          lastName8: lastName8,
+          room: room,
+          ampm: ampm,
+          affilName1: affilName1,
+          affilName2: affilName2,
+          affilName3: affilName3,
+          affilName4: affilName4,
+          affilName5: affilName5,
+          affilName6: affilName6,
+          affilName7: affilName7,
+          affilName8: affilName8,
+          track: track
+
         }
         // console.log(newPaper);
         newPapers.push(newPaper)
@@ -74,6 +98,32 @@ function getPapers(filterOpts) {
         if (err) { console.error(err); return; }
         papers = newPapers
         resolve(papers)
+    });
+  });
+}
+
+function getSessions(filterOpts) {
+  return new Promise(function(resolve, reject) {
+  let newSessions = []
+  base('Sessions').select(filterOpts).eachPage(function page(records, fetchNextPage) {
+    // This function (`page`) will get called for each page of records.
+    records.forEach(function(record) {
+        console.log('Retrieved', record.get('Submission ID'));
+        var sessionTitle = record.get('Session Title')
+        var newSession = {
+          sessionTitle: sessionTitle
+        }
+        // console.log(newPaper);
+        newSessions.push(newSession)
+    });
+    // To fetch the next page of records, call `fetchNextPage`.
+    // If there are more records, `page` will get called again.
+    // If there are no more records, `done` will get called.
+    fetchNextPage();
+    }, function done(err) {
+        if (err) { console.error(err); return; }
+        sessions = newSessions
+        resolve(sessions)
     });
   });
 }
