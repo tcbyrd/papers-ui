@@ -8,19 +8,31 @@ a {
 }
 
 h2 {
-  width: 90%;
   text-align: left;
   font-size: 16px;
-  padding-top: 10px;
+  padding: 25px;
+  margin: 25px;
   background-color: #EEE;
-  margin: auto;
-  display: inline-flex;
-  line-height: 15px;
+  display: flex;
   align-self: center;
 }
 
 .header {
   display: inline-block;
+}
+
+.session-header {
+  display: block;
+  text-align: center;
+}
+
+.track {
+  display: block;
+  font-size: 18px;
+  background-color: white;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  text-align: center;
 }
 
 .caalogo {
@@ -66,6 +78,7 @@ h2 {
 }
 
 .organizer {
+  display: inline-flex;
   padding-left: 5px;
   font-style: oblique;
   font-weight: lighter;
@@ -79,14 +92,14 @@ h2 {
 
 @media print {
   h2 {
-    width: 90%;
     text-align: left;
-    font-size: 16px;
-    padding-top: 10px;
-    margin: auto;
-    line-height: 15px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px;
     align-self: center;
     page-break-after: avoid;
+    page-break-inside: avoid;
+    background-color: #EEE;
   }
 
   .author {
@@ -97,5 +110,14 @@ h2 {
   .abstract {
     display: block;
     page-break-before: avoid;
+  }
+
+  .track {
+    display: block;
+    font-size: 18px;
+    background-color: white;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    text-align: center;
   }
 }
