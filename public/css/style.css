@@ -67,12 +67,22 @@ h3 {
 
 .caalogo {
   padding-right: 25px;
+  position: absolute;
   width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.caatlogo {
+  width: 150px;
+  position: relative;
+  padding-right: 15px;
+  margin-top: -15px;
 }
 
 .gsulogo {
   float: right;
-  height: 60px;
+  height: 65px;
 }
 
 .day {
