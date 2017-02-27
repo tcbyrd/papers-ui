@@ -17,6 +17,10 @@ h2 {
   align-self: center;
 }
 
+h3 {
+  page-break-inside: avoid;
+}
+
 .header {
   display: inline-block;
 }
@@ -24,6 +28,7 @@ h2 {
 .session-header {
   display: block;
   text-align: center;
+  page-break-inside: avoid;
 }
 
 .track {
@@ -33,6 +38,7 @@ h2 {
   margin-top: -15px;
   margin-bottom: -15px;
   text-align: center;
+  page-break-inside: avoid;
 }
 
 .caalogo {
@@ -50,12 +56,14 @@ h2 {
   text-align: center;
   text-decoration: underline;
   font-size: 20px;
+  page-break-inside: avoid;
 }
 
 .paper {
   display: flex;
   width: 90%;
-  border-bottom: .25px dotted #AAA;
+  margin-bottom: 5px;
+  page-break-inside: avoid;
 }
 
 .time {
@@ -63,6 +71,7 @@ h2 {
   margin-right: 5px;
   float: left;
   width: 33%;
+  page-break-inside: avoid;
 }
 
 .description {
@@ -70,6 +79,7 @@ h2 {
   font-family: serif;
   font-size: 12px;
   text-transform: capitalize;
+  page-break-inside: avoid;
 }
 
 .abstract {
@@ -83,11 +93,15 @@ h2 {
   font-style: oblique;
   font-weight: lighter;
   font-size: 12px;
+  page-break-inside: avoid;
 }
 
 @page {
-  size: 7in 8.5in;
-  margin-right: .25in;
+  size: 8.5in 11in
+  margin-left: .5in;
+  margin-right: .5in;
+  margin-bottom: .5in;
+  margin-top: .5in;
 }
 
 @media print {

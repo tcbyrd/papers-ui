@@ -83,18 +83,19 @@ block content
         - var sessionOrgName3 = session.firstNameOrg3 + ' ' + session.lastNameOrg3
         - var sessionOrgName4 = session.firstNameOrg4 + ' ' + session.lastNameOrg4
         - var sessionOrgName5 = session.firstNameOrg5 + ' ' + session.lastNameOrg5
-      h2= paper.sessionTitle
-        h2!=  '<em> (' + paper.track + ')</em>'
-        if sessionOrgName5 !== 'undefined undefined'
-          p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
-        else if sessionOrgName4 !== 'undefined undefined'
-          p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}
-        else if sessionOrgName3 !== 'undefined undefined'
-          p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}
-        else if sessionOrgName2 !== 'undefined undefined'
-          p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
-        else if sessionOrgName1 !== 'undefined undefined'
-          p(class='organizer') Organizer: #{sessionOrgName1}
+      div(class='session-header')
+        h2= paper.sessionTitle
+          h2(class='track')!=  '<em>' + paper.track + '</em> '
+          if sessionOrgName5 !== 'undefined undefined'
+            p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
+          else if sessionOrgName4 !== 'undefined undefined'
+            p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}
+          else if sessionOrgName3 !== 'undefined undefined'
+            p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}
+          else if sessionOrgName2 !== 'undefined undefined'
+            p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
+          else if sessionOrgName1 !== 'undefined undefined'
+            p(class='organizer') Organizer: #{sessionOrgName1}
       h3= 'Room: ' + paper.room
       - checkIndex = paper.sessionType
     if paper.ampm === 'afternoon'
