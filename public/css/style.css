@@ -1,10 +1,34 @@
 body {
   padding: 50px;
-  font: 12px serif;
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  text-align: center;
+  background-color: #292f60;
+  width: 100%;
+}
+.nav a {
+  margin-left: 10px;
+  position: relative;
+  top: 5px;
+  background-color: #292f60;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  background-color: #3e3e99;
 }
 
 a {
-  color: #00B7FF;
+  color: #292f60;
 }
 
 h2 {
@@ -22,7 +46,7 @@ h3 {
 }
 
 .header {
-  display: inline-block;
+  display: block;
 }
 
 .session-header {
@@ -114,6 +138,10 @@ h3 {
     page-break-after: avoid;
     page-break-inside: avoid;
     background-color: #EEE;
+  }
+
+  .nav {
+    display: none;
   }
 
   .author {
