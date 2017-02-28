@@ -11,6 +11,11 @@ block content
     - var roomIndex = ''
     each paper in papers
       - var sessionIndex = paper.sessionType
+      - var sessionOrgName1 = ''
+      - var sessionOrgName2 = ''
+      - var sessionOrgName3 = ''
+      - var sessionOrgName4 = ''
+      - var sessionOrgName5 = ''
       - var session = sessions[paper.sessionTitle]
       if paper.lastName8
         - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7 + ', ' + paper.firstName8 + ' ' + paper.lastName8
@@ -60,6 +65,11 @@ block content
   - var roomIndex = ''
   each paper in papers
     - var sessionIndex = paper.sessionType
+    - var sessionOrgName1 = ''
+    - var sessionOrgName2 = ''
+    - var sessionOrgName3 = ''
+    - var sessionOrgName4 = ''
+    - var sessionOrgName5 = ''
     - var session = sessions[paper.sessionTitle]
     if paper.lastName8
       - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7 + ', ' + paper.firstName8 + ' ' + paper.lastName8
