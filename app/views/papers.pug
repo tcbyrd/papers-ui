@@ -43,6 +43,7 @@ block content
         div(class='session-header')
           h2= paper.sessionTitle
           h2(class='track')!=  '<em>' + paper.track + '</em> '
+          h3= 'Room: ' + paper.room
           if sessionOrgName5 !== 'undefined undefined'
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
           else if sessionOrgName4 !== 'undefined undefined'
@@ -53,7 +54,6 @@ block content
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
           else if sessionOrgName1 !== 'undefined undefined'
             p(class='organizer') Organizer: #{sessionOrgName1}
-        h3= 'Room: ' + paper.room
         - checkIndex = paper.sessionType
       if paper.ampm === 'morning'
         div(class='paper')
@@ -97,6 +97,7 @@ block content
       div(class='session-header')
         h2= paper.sessionTitle
           h2(class='track')!=  '<em>' + paper.track + '</em> '
+          h3= 'Room: ' + paper.room
           if sessionOrgName5 !== 'undefined undefined'
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
           else if sessionOrgName4 !== 'undefined undefined'
@@ -107,7 +108,6 @@ block content
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
           else if sessionOrgName1 !== 'undefined undefined'
             p(class='organizer') Organizer: #{sessionOrgName1}
-      h3= 'Room: ' + paper.room
       - checkIndex = paper.sessionType
     if paper.ampm === 'afternoon'
       div(class='paper')
