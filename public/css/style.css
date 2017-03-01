@@ -34,7 +34,7 @@ a {
 
 h2 {
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   padding: 25px;
   margin: 15px;
   background-color: #EEE;
@@ -44,6 +44,7 @@ h2 {
 
 h3 {
   page-break-inside: avoid;
+  font-size: 16px;
 }
 
 .header {
@@ -58,7 +59,7 @@ h3 {
 
 .track {
   display: block;
-  font-size: 20px;
+  font-size: 14px;
   background-color: white;
   margin-top: -15px;
   margin-bottom: -15px;
@@ -114,7 +115,6 @@ h3 {
   display: inline;
   font-family: serif;
   font-size: 12px;
-  text-transform: capitalize;
   page-break-inside: avoid;
 }
 
@@ -143,7 +143,7 @@ h3 {
 @media print {
   h2 {
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
     margin: 10px;
     align-self: center;
@@ -154,6 +154,7 @@ h3 {
 
   h3 {
     margin: 0;
+    font-size: 14px;
   }
   .nav {
     display: none;
@@ -171,7 +172,7 @@ h3 {
 
   .track {
     display: block;
-    font-size: 20px;
+    font-size: 14px;
     background-color: white;
     margin-top: -15px;
     margin-bottom: -15px;

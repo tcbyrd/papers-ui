@@ -58,7 +58,10 @@ block content
       if paper.ampm === 'morning'
         div(class='paper')
           p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
-          p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+          if paper.title !== 'Discussion'
+            p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+          else if paper.title === 'Discussion'
+            p(class='description') <em>#{paper.title}</em>
   h1(class='day')= day + " Afternoon"
   if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
   - var checkIndex = ''
@@ -112,4 +115,7 @@ block content
     if paper.ampm === 'afternoon'
       div(class='paper')
         p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
-        p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+        if paper.title !== 'Discussion'
+          p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+        else if paper.title === 'Discussion'
+          p(class='description') <em>#{paper.title}</em>
