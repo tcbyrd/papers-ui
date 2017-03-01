@@ -43,7 +43,7 @@ block content
         div(class='session-header')
           h2= paper.sessionTitle
           h2(class='track')!=  '<em>' + paper.track + '</em> '
-          h3= 'Room: ' + paper.room
+          h3(class='room')= 'Room: ' + paper.room
           if sessionOrgName5 !== 'undefined undefined'
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
           else if sessionOrgName4 !== 'undefined undefined'
@@ -100,7 +100,7 @@ block content
       div(class='session-header')
         h2= paper.sessionTitle
           h2(class='track')!=  '<em>' + paper.track + '</em> '
-          h3= 'Room: ' + paper.room
+          h3(class='room')= 'Room: ' + paper.room
           if sessionOrgName5 !== 'undefined undefined'
             p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
           else if sessionOrgName4 !== 'undefined undefined'

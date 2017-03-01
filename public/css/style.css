@@ -44,7 +44,6 @@ h2 {
 
 h3 {
   page-break-inside: avoid;
-  font-size: 16px;
 }
 
 .header {
@@ -66,6 +65,10 @@ h3 {
   text-align: center;
   page-break-inside: avoid;
   padding: 15px;
+}
+
+.room {
+  font-size: 14px;
 }
 
 .caalogo {
@@ -177,5 +180,9 @@ h3 {
     margin-top: -15px;
     margin-bottom: -15px;
     text-align: center;
+  }
+
+  .room {
+    font-size: 14px;
   }
 }
