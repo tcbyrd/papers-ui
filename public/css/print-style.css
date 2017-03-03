@@ -2,7 +2,6 @@ body {
   padding: 50px;
   font-family: 'Amiri', serif;
   font-size: 14px;
-  margin
 }
 
 .nav {
@@ -14,7 +13,6 @@ body {
   background-color: #292f60;
   width: 100%;
 }
-
 .nav a {
   margin-left: 10px;
   position: relative;
@@ -35,29 +33,27 @@ a {
 
 h2 {
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   padding: 25px;
   margin: 15px;
   background-color: #EEE;
   display: flex;
   align-self: center;
+  page-break-inside: avoid;
+  line-height: 18px;
 }
 
 h3 {
   page-break-inside: avoid;
 }
 
+.content {
+  columns: 2;
+}
+
 .header {
   display: block;
   text-align: center;
-}
-
-.content-col-1 {
-  columns: 1;
-}
-
-.content-col-2 {
-  columns: 2;
 }
 
 .session-header {
@@ -74,11 +70,11 @@ h3 {
   margin-bottom: -15px;
   text-align: center;
   page-break-inside: avoid;
-  padding: 15px;
 }
 
 .room {
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .caalogo {
@@ -112,17 +108,18 @@ h3 {
 .paper {
   display: flex;
   width: 90%;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
   page-break-inside: avoid;
 }
 
 .time {
   display: inline-table;
-  margin-right: 5px;
+  margin-right: 3px;
   float: left;
   width: 25%;
   page-break-inside: avoid;
+  margin-top: 0;
+  margin-bottom: 8px;
+  vertical-align: top;
 }
 
 .description {
@@ -130,6 +127,9 @@ h3 {
   font-family: serif;
   font-size: 12px;
   page-break-inside: avoid;
+  width: 88%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .abstract {
@@ -144,21 +144,6 @@ h3 {
   font-weight: lighter;
   font-size: 12px;
   page-break-inside: avoid;
-}
-
-.btn {
-  background: #3498db;
-  border: none;
-  border-radius: 1px;
-  color: #ffffff;
-  font-size: 12px;
-  padding: 3px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #3cb0fd;
-  text-decoration: none;
 }
 
 @page {
@@ -189,10 +174,6 @@ h3 {
     display: none;
   }
 
-  .btn {
-    display: none;
-  }
-
   .author {
     display: block;
     text-transform: capitalize;
@@ -207,13 +188,13 @@ h3 {
     display: block;
     font-size: 14px;
     background-color: white;
-    margin-top: -15px;
-    margin-bottom: -15px;
+    margin-top: -10px;
+    margin-bottom: -10px;
     text-align: center;
   }
 
   .room {
     font-size: 14px;
+    margin-bottom: 5px;
   }
-
 }

@@ -1,13 +1,11 @@
-extends layout
+extends print-layout
 
 block content
   div(class='header')
     img(src='/img/caa-heder-logo-small.gif' class='caalogo')
     img(src='/img/CAA_Logo3.png' class='caatlogo')
     img(src='https://lh3.googleusercontent.com/-mkA9aSolm3s/AAAAAAAAAAI/AAAAAAAAABw/qTf4FZWDymM/s120-p-rw-no/photo.jpg' class='gsulogo')
-  div(class='controls')
-    button(class='btn' type='button' onClick='switchColumn()')= 'Switch Column View'
-  div(class='content-col-1')
+  div(class='content')
     h1(class='day')= day + " Morning"
     if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
       - var checkIndex = ''
@@ -60,10 +58,7 @@ block content
           - checkIndex = paper.sessionType
         if paper.ampm === 'morning'
           div(class='paper')
-            if isTwoCol
-              p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
-            else if !isTwoCol
-              p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
+            p(class='time') #{paper.startTime}
             if paper.title !== 'Discussion'
               p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
             else if paper.title === 'Discussion'
@@ -120,7 +115,7 @@ block content
         - checkIndex = paper.sessionType
       if paper.ampm === 'afternoon'
         div(class='paper')
-          p(class='time') <strong>#{paper.startTime} - #{paper.endTime}</strong>
+          p(class='time') #{paper.startTime}
           if paper.title !== 'Discussion'
             p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
           else if paper.title === 'Discussion'
