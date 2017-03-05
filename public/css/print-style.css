@@ -49,6 +49,11 @@ h3 {
 
 .content {
   columns: 2;
+  margin-top: 15px;
+}
+
+.afternoon {
+  page-break-before: always;
 }
 
 .header {
@@ -67,14 +72,15 @@ h3 {
   font-size: 14px;
   background-color: white;
   margin-top: -15px;
-  margin-bottom: -15px;
+  margin-bottom: -10px;
   text-align: center;
+  padding: 7px;
   page-break-inside: avoid;
 }
 
 .room {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 .caalogo {
@@ -128,8 +134,8 @@ h3 {
   font-size: 12px;
   page-break-inside: avoid;
   width: 88%;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 2px;
+  margin-bottom: 5px;
 }
 
 .abstract {
@@ -144,12 +150,16 @@ h3 {
   font-weight: lighter;
   font-size: 12px;
   page-break-inside: avoid;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding-bottom: 3px;
+  padding-top: 1px;
 }
 
 @page {
   size: 8.5in 11in
-  margin-left: .5in;
-  margin-right: .5in;
+  margin-left: .25in;
+  margin-right: .25in;
   margin-bottom: .5in;
   margin-top: .5in;
 }
@@ -184,17 +194,4 @@ h3 {
     page-break-before: avoid;
   }
 
-  .track {
-    display: block;
-    font-size: 14px;
-    background-color: white;
-    margin-top: -10px;
-    margin-bottom: -10px;
-    text-align: center;
-  }
-
-  .room {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
 }

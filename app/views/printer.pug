@@ -7,6 +7,15 @@ block content
     img(src='https://lh3.googleusercontent.com/-mkA9aSolm3s/AAAAAAAAAAI/AAAAAAAAABw/qTf4FZWDymM/s120-p-rw-no/photo.jpg' class='gsulogo')
   div(class='content')
     h1(class='day')= day + " Morning"
+    if (day === 'tuesday')
+      div(style='text-align: center; background-color: #EEE; border: 1px solid black; margin: auto; width: 95%;')
+        p(class='room' style='margin-bottom: -10px; margin-top: 0;') 8:30 AM - <em>Keynote Address</em>
+        h3(class='room' style='font-size: 18px; margin-bottom: -10px') <strong>Dr. Ken Kvamme</strong>
+        h3(class='room')= 'SCE Auditorium'
+      br  
+      div(class='paper')
+        p(class='time') 9:30 AM
+        p(class='description') <em>Coffee Break</em>
     if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
       - var checkIndex = ''
       - var roomIndex = ''
@@ -59,10 +68,14 @@ block content
         if paper.ampm === 'morning'
           div(class='paper')
             p(class='time') #{paper.startTime}
-            if paper.title !== 'Discussion'
-              p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
-            else if paper.title === 'Discussion'
-              p(class='description') <em>#{paper.title}</em>
+            case paper.title
+              when 'Discussion'
+                p(class='description') <em>#{paper.title}</em>
+              when 'Coffee Break'
+                p(class='description') <em>#{paper.title}</em>
+              default
+                p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+  div(class='content afternoon')
     h1(class='day')= day + " Afternoon"
     if (day === 'tuesday') || (day === 'wednesday') || (day === 'thursday')
     - var checkIndex = ''
@@ -116,7 +129,10 @@ block content
       if paper.ampm === 'afternoon'
         div(class='paper')
           p(class='time') #{paper.startTime}
-          if paper.title !== 'Discussion'
-            p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
-          else if paper.title === 'Discussion'
-            p(class='description') <em>#{paper.title}</em>
+          case paper.title
+            when 'Discussion'
+              p(class='description') <em>#{paper.title}</em>
+            when 'Coffee Break'
+              p(class='description') <em>#{paper.title}</em>
+            default
+              p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
