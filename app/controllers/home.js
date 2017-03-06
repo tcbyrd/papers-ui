@@ -7,9 +7,5 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
-  var articles = [new Article(), new Article()];
-    res.render('index', {
-      title: 'CAA 2017 Papers',
-      articles: articles
-    });
+  res.redirect('/print/tuesday')
 });
