@@ -1,6 +1,6 @@
 {
   "name": "papers-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "main": "app.js",
   "scripts": {
@@ -32,5 +32,8 @@
     "mocha": "^3.0.2",
     "nyc": "^10.0.0",
     "supertest": "^2.0.0"
+  },
+  "engines": {
+    "node": "7.4.0"
   }
 }
