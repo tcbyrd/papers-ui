@@ -12,7 +12,7 @@ block content
         p(class='room' style='margin-bottom: -10px; margin-top: 0;') 8:30 AM - <em>Keynote Address</em>
         h3(class='room' style='font-size: 18px; margin-bottom: -10px') <strong>Dr. Ken Kvamme</strong>
         h3(class='room')= 'SCE Auditorium'
-      br  
+      br
       div(class='paper')
         p(class='time') 9:30 AM
         p(class='description') <em>Coffee Break</em>
@@ -81,58 +81,59 @@ block content
     - var checkIndex = ''
     - var roomIndex = ''
     each paper in papers
-      - var sessionIndex = paper.sessionType
-      - var sessionOrgName1 = ''
-      - var sessionOrgName2 = ''
-      - var sessionOrgName3 = ''
-      - var sessionOrgName4 = ''
-      - var sessionOrgName5 = ''
-      - var session = sessions[paper.sessionTitle]
-      if paper.lastName8
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7 + ', ' + paper.firstName8 + ' ' + paper.lastName8
-      else if paper.lastName7
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7
-      else if paper.lastName6
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6
-      else if paper.lastName5
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5
-      else if paper.lastName4
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4
-      else if paper.lastName3
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3
-      else if paper.lastName2
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2
-      else if paper.lastName1
-        - var authorString = paper.lastName1 + ', ' + paper.firstName1
-      if sessionIndex !== checkIndex && paper.ampm === 'afternoon'
-        if session !== undefined
-          - var sessionOrgName1 = session.firstNameOrg1 + ' ' + session.lastNameOrg1
-          - var sessionOrgName2 = session.firstNameOrg2 + ' ' + session.lastNameOrg2
-          - var sessionOrgName3 = session.firstNameOrg3 + ' ' + session.lastNameOrg3
-          - var sessionOrgName4 = session.firstNameOrg4 + ' ' + session.lastNameOrg4
-          - var sessionOrgName5 = session.firstNameOrg5 + ' ' + session.lastNameOrg5
-        div(class='session-header')
-          h2= paper.sessionTitle
-            h2(class='track')!=  '<em>' + paper.track + '</em> '
-            h3(class='room')= 'Room: ' + paper.room
-            if sessionOrgName5 !== 'undefined undefined'
-              p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
-            else if sessionOrgName4 !== 'undefined undefined'
-              p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}
-            else if sessionOrgName3 !== 'undefined undefined'
-              p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}
-            else if sessionOrgName2 !== 'undefined undefined'
-              p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
-            else if sessionOrgName1 !== 'undefined undefined'
-              p(class='organizer') Organizer: #{sessionOrgName1}
-        - checkIndex = paper.sessionType
-      if paper.ampm === 'afternoon'
-        div(class='paper')
-          p(class='time') #{paper.startTime}
-          case paper.title
-            when 'Discussion'
-              p(class='description') <em>#{paper.title}</em>
-            when 'Coffee Break'
-              p(class='description') <em>#{paper.title}</em>
-            default
-              p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>
+      unless paper.sessionType === 'ZZZ'
+        - var sessionIndex = paper.sessionType
+        - var sessionOrgName1 = ''
+        - var sessionOrgName2 = ''
+        - var sessionOrgName3 = ''
+        - var sessionOrgName4 = ''
+        - var sessionOrgName5 = ''
+        - var session = sessions[paper.sessionTitle]
+        if paper.lastName8
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7 + ', ' + paper.firstName8 + ' ' + paper.lastName8
+        else if paper.lastName7
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6 + ', ' + paper.firstName7 + ' ' + paper.lastName7
+        else if paper.lastName6
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5 + ', ' + paper.firstName6 + ' ' + paper.lastName6
+        else if paper.lastName5
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4 + ', ' + paper.firstName5 + ' ' + paper.lastName5
+        else if paper.lastName4
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3 + ', ' + paper.firstName4 + ' ' + paper.lastName4
+        else if paper.lastName3
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2 + ', ' + paper.firstName3 + ' ' + paper.lastName3
+        else if paper.lastName2
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1 + ', ' + paper.firstName2 + ' ' + paper.lastName2
+        else if paper.lastName1
+          - var authorString = paper.lastName1 + ', ' + paper.firstName1
+        if sessionIndex !== checkIndex && paper.ampm === 'afternoon'
+          if session !== undefined
+            - var sessionOrgName1 = session.firstNameOrg1 + ' ' + session.lastNameOrg1
+            - var sessionOrgName2 = session.firstNameOrg2 + ' ' + session.lastNameOrg2
+            - var sessionOrgName3 = session.firstNameOrg3 + ' ' + session.lastNameOrg3
+            - var sessionOrgName4 = session.firstNameOrg4 + ' ' + session.lastNameOrg4
+            - var sessionOrgName5 = session.firstNameOrg5 + ' ' + session.lastNameOrg5
+          div(class='session-header')
+            h2= paper.sessionTitle
+              h2(class='track')!=  '<em>' + paper.track + '</em> '
+              h3(class='room')= 'Room: ' + paper.room
+              if sessionOrgName5 !== 'undefined undefined'
+                p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}, #{sessionOrgName5}
+              else if sessionOrgName4 !== 'undefined undefined'
+                p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}, #{sessionOrgName4}
+              else if sessionOrgName3 !== 'undefined undefined'
+                p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}, #{sessionOrgName3}
+              else if sessionOrgName2 !== 'undefined undefined'
+                p(class='organizer') Organizers: #{sessionOrgName1}, #{sessionOrgName2}
+              else if sessionOrgName1 !== 'undefined undefined'
+                p(class='organizer') Organizer: #{sessionOrgName1}
+          - checkIndex = paper.sessionType
+        if paper.ampm === 'afternoon'
+          div(class='paper')
+            p(class='time') #{paper.startTime}
+            case paper.title
+              when 'Discussion'
+                p(class='description') <em>#{paper.title}</em>
+              when 'Coffee Break'
+                p(class='description') <em>#{paper.title}</em>
+              default
+                p(class='description') <strong>#{authorString}</strong>, <em>#{paper.title}</em>

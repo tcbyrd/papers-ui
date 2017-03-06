@@ -208,6 +208,57 @@ router.get('/papers/:day', function (req, res, next){
 
 });
 
+router.get('/print/posters', function (req, res, next){
+  var date = ''
+  var view = ''
+  var day = 'tuesday'
+  switch (day) {
+    case 'tuesday':
+      date = '3/14/17'
+      view = 'Tuesday'
+      break;
+    case 'wednesday':
+      date = '3/15/17'
+      view = 'Wednesday'
+      break;
+    case 'thursday':
+      date = '3/16/17'
+      view = 'Thursday'
+      break;
+    case 'all':
+      date = ''
+      view = "Filtered for Web"
+      break;
+    default:
+      date = ''
+      view = "Default"
+      break;
+  }
+  if (date !== '') {
+    var filterDate = "({Day} = '" + date + "')"
+    var filterOpts = {
+      // Selecting the first 25 records in the track defined in 'view':
+      maxRecords: 400,
+      view: view,
+      filterByFormula: filterDate
+    }
+  } else {
+    var filterOpts = {
+      maxRecords: 400,
+      pageSize: 100,
+      view: view
+    }
+  }
+  console.log('Formula: ', filterOpts.filterByFormula);
+  getSessions()
+    .then(sessions => console.log(sessions))
+    .then(
+      getPapers(filterOpts)
+      .then(papers => res.render('posters', {title: 'Printer View', day: 'tuesday', papers, sessions}))
+    )
+
+});
+
 router.get('/print/:day', function (req, res, next){
   var date = ''
   var view = ''
