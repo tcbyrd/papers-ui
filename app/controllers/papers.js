@@ -147,7 +147,7 @@ function getSessions() {
   });
 }
 
-router.get('/papers/abstracts', function (req, res, next) {
+router.get('/print/abstracts', function (req, res, next) {
   var filterOpts = {
     // Selecting the first 100 records in Abstracts view:
     maxRecords: 400,
