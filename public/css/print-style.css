@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font-family: 'Amiri', serif;
+  font-family: 'Raleway', serif;
   font-size: 14px;
 }
 
@@ -115,6 +115,7 @@ h3 {
   text-decoration: underline;
   font-size: 20px;
   page-break-inside: avoid;
+  margin-top: auto;
 }
 
 .paper {
@@ -136,7 +137,6 @@ h3 {
 
 .description {
   display: inline;
-  font-family: serif;
   font-size: 12px;
   page-break-inside: avoid;
   width: 88%;
