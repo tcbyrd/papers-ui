@@ -18,6 +18,7 @@ html(lang='en')
       a(href='/print/thursday') Thursday
       a(href='/print/posters') Posters
       a(href='/print/abstracts') Abstracts
-      a(href='/CAA-2017-Program.pdf' target="_blank") Download Program PDF (19 Pages)
-      a(href='/CAA-2017-Abstracts.pdf' target="_blank") Download Abstracts PDF (147 Pages)
+      div(class='dropdown') Download PDF
+        a(class='dropdown-content' href='/CAA-2017-Program.pdf' target="_blank") Download Program PDF (19 Pages)
+        a(class='dropdown-content' href='/CAA-2017-Abstracts.pdf' target="_blank") Download Abstracts PDF (147 Pages)
     block content

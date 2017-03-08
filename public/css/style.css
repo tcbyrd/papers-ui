@@ -29,6 +29,41 @@ body {
   background-color: #3e3e99;
 }
 
+.dropdown {
+  margin-left: 10px;
+  position: relative;
+  top: 5px;
+  color: white;
+  text-decoration: none;
+  display: inline;
+}
+
+.dropdown:hover {
+  background-color: #3e3e99;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+  display: list-item;
+  right: -49.5%;
+  width: 265px;
+}
+
 a {
   color: #292f60;
 }
