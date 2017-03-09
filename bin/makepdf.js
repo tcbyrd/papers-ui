@@ -6,7 +6,7 @@ var PDFs = []
 
 function convertUrl(inputUrl) {
   return new Promise(function(resolve, reject) {
-    var query = 'apikey=t8TwkosdpKisitvjuGZXftDNb9GZrSDtE0JuyK6F0aCqk0MtGCOHT3Jb98jR1dEdx-Dy6JN2jBQi18rm3s2Qyw&inputformat=website&outputformat=pdf&input=url&file=' + inputUrl + '&converteroptions[page_orientation]=portrait&converteroptions&converteroptions[image_dpi]=600&converteroptions[image_quality]=94&converteroptions[zoom]=1.0&converteroptions[print_media_type]=true&converteroptions[page_size]=A4&converteroptions[margin_top]=10&converteroptions[margin_bottom]=10&converteroptions[margin_left]=10&converteroptions[margin_right]=10&wait=true'
+    var query = 'apikey=' + cckey + '&inputformat=website&outputformat=pdf&input=url&file=' + inputUrl + '&converteroptions[page_orientation]=portrait&converteroptions&converteroptions[image_dpi]=600&converteroptions[image_quality]=94&converteroptions[zoom]=1.0&converteroptions[print_media_type]=true&converteroptions[page_size]=A4&converteroptions[margin_top]=10&converteroptions[margin_bottom]=10&converteroptions[margin_left]=10&converteroptions[margin_right]=10&wait=true'
     var URL = 'https://api.cloudconvert.com/convert?' + query
     console.log(inputUrl);
     var outputFile = inputUrl.substring(54) + '.pdf'
