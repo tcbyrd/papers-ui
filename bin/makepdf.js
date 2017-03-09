@@ -1,6 +1,7 @@
 var request = require('request');
 var fs = require('fs');
-var cloudconvert = new (require('cloudconvert'))('t8TwkosdpKisitvjuGZXftDNb9GZrSDtE0JuyK6F0aCqk0MtGCOHT3Jb98jR1dEdx-Dy6JN2jBQi18rm3s2Qyw');
+var cckey = process.env.CLOUDCONVERT_API_KEY
+var cloudconvert = new (require('cloudconvert'))(cckey);
 var PDFs = []
 
 function convertUrl(inputUrl) {
