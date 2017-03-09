@@ -3,7 +3,7 @@ var config = require('./config/config')
 var makePdf = require('./bin/makepdf')
 var app = express();
 
-makePdf()
+// makePdf()
 
 module.exports = require('./config/express')(app, config);
 
