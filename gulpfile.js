@@ -2,7 +2,7 @@ var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   plumber = require('gulp-plumber'),
   livereload = require('gulp-livereload');
-
+var makePdf = require('./bin/makepdf')
 
 gulp.task('develop', function () {
   livereload.listen();

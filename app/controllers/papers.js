@@ -310,7 +310,6 @@ router.get('/print/:day', function (req, res, next){
 
 });
 
-
 module.exports = function (app) {
   app.use('/', router);
 };
