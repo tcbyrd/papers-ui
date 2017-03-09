@@ -4,3 +4,7 @@ public/components
 .sass-cache
 tmp/
 *.log
+public/posters.pdf
+public/tuesday.pdf
+public/wednesday.pdf
+public/thursday.pdf

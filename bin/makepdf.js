@@ -10,7 +10,7 @@ function convertUrl(inputUrl) {
     console.log(inputUrl);
     var outputFile = inputUrl.substring(54) + '.pdf'
     request(URL)
-      .pipe(fs.createWriteStream('tmp/' + outputFile))
+      .pipe(fs.createWriteStream('public/' + outputFile))
       .on('finish', () => resolve(outputFile));
   })
 }
@@ -49,21 +49,36 @@ function combinePdfs() {
         "mode": "combine",
         "inputformat": "pdf",
         "outputformat": "pdf"
-    }, function(err, process) {
+    }, (err, process) => {
       console.log(process);
       process.start({
         "mode": "combine",
         "input": "download",
         "files": [
-          "/tmp/" + PDFs[0],
-          "/tmp/" + PDFs[1],
-          "/tmp/" + PDFs[2],
-          "/tmp/" + PDFs[3]
+          "http://caa-2017-program.herokuapp.com/tuesday.pdf",
+          "http://caa-2017-program.herokuapp.com/posters.pdf",
+          "http://caa-2017-program.herokuapp.com/wednesday.pdf",
+          "http://caa-2017-program.herokuapp.com/thursday.pdf"
         ],
         "outputformat": "pdf",
         "wait": true
+      }, (err, process) => {
+          process.wait( (err, process) => {
+            console.log('From Download', process);
+            process.pipe(
+              fs.createWriteStream('public/caa-2017.pdf')
+                .on('finish', () => {
+                  console.log('Finished combining file!')
+                  PDFs.forEach(PDF => fs.unlink('public/' + PDF, (err) => {
+                                                  if(err) return console.log(err);
+                                                  console.log(PDF + ' deleted successfully!');
+                                                }
+                                               )
+                              )
+                })
+              )
+          })
       })
-      .pipe(fs.createWriteStream('/tmp/caa-final.pdf'))
     });
   } else if (PDFs.length === 3) {
     console.log('There are THREE: ' + PDFs);
@@ -73,8 +88,5 @@ function combinePdfs() {
     console.log('There is ONE: ' + PDFs);
   }
 }
-
-
-
 
 module.exports = createPdfs;
