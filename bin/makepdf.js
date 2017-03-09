@@ -71,8 +71,8 @@ function combinePdfs() {
                   console.log('Finished combining file!')
                   PDFs.forEach(PDF => fs.unlink('public/' + PDF, (err) => {
                                                   if(err) return console.log(err);
-                                                  console.log(PDF + ' deleted successfully!');
-                                                }
+                                                    console.log(PDF + ' deleted successfully!');
+                                                  }
                                                )
                               )
                 })
